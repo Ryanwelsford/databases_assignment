@@ -1,0 +1,64 @@
+/*	
+	MODULE: CSY1026 
+	YEAR: 2018/2019
+	GROUP MEMBERS: Amaan Hassim (18413283), Carlos Vieira (18407794), Jack Wood-Stoddard (18412307), Ryan Andrew Welsford (18427982).
+	DATE CREATED: 00/MAR/2019
+	LAST CHANGED: 00/MAR/2019
+	FILE DESCRIPTION: Leave empty focus on bigger priorities in life for now. 
+	LOGIN COMMAND: CSY1026_174@student/18427982
+	RUN COMMAND: @D:\csy1026\scripts\drop_16.txt;
+*/
+-- foreign key drops
+ALTER TABLE employee_specialisms
+DROP CONSTRAINT fk_es_employees;
+
+ALTER TABLE employee_specialisms
+DROP CONSTRAINT fk_es_specialisms;
+
+-- primary key drops
+ALTER TABLE employees
+DROP CONSTRAINT pk_employees;
+
+ALTER TABLE specialisms
+DROP CONSTRAINT pk_specialisms;
+
+ALTER TABLE employee_specialisms
+DROP CONSTRAINT pk_employee_specialisms;
+
+-- unique drops
+ALTER TABLE employees
+DROP CONSTRAINT u_employees;
+
+-- check drops
+-- upper drops
+ALTER TABLE employees
+DROP CONSTRAINT ck_employees_first_name;
+
+ALTER TABLE employees
+DROP CONSTRAINT ck_employees_last_name;
+
+-- check in drops
+ALTER TABLE employees
+DROP CONSTRAINT ck_employees_title;
+
+ALTER TABLE employees
+DROP CONSTRAINT ck_employees_gender;
+
+ALTER TABLE specialisms
+DROP CONSTRAINT ck_specialisms_skill
+
+-- table drop area
+DROP TABLE employees;
+
+DROP TABLE specialisms;
+
+DROP TABLE employee_specialisms;
+
+-- sequence drop area
+
+DROP SEQUENCE seq_employees;
+
+DROP SEQUENCE seq_specialisms;
+
+-- purge
+PURGE RECYCLEBIN;

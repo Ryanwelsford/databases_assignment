@@ -1,0 +1,42 @@
+/*	
+	MODULE: CSY1026 
+	YEAR: 2018/2019
+	GROUP MEMBERS: Amaan Hassim (18413283), Carlos Vieira (18407794), Jack Wood-Stoddard (18412307), Ryan Andrew Welsford (18427982).
+	DATE CREATED: 00/MAR/2019
+	LAST CHANGED: 00/MAR/2019
+	FILE DESCRIPTION: Leave empty focus on bigger priorities in life for now. 
+	LOGIN COMMAND: CSY1026_174@student/18427982
+	RUN COMMAND: @D:\csy1026\scripts\create_16.txt;
+*/
+-- table area
+CREATE TABLE employees (
+employee_id NUMBER(8),
+title VARCHAR2(10),
+first_name VARCHAR2(15),
+last_name VARCHAR2(25),
+dob DATE NOT NULL,
+address_line1 VARCHAR2(50),
+postcode VARCHAR2(10),
+email VARCHAR2(50),
+contact_number VARCHAR2(13),
+gender CHAR DEFAULT 'M',
+salary NUMBER(8,2));
+
+CREATE TABLE specialisms (
+skill_id NUMBER(8),
+skill_name VARCHAR2(30),
+skill_department VARCHAR2(30) DEFAULT 'COMPUTING',
+date_added DATE);
+
+CREATE TABLE employee_specialisms ( 
+employee_id NUMBER(8) NOT NULL,
+skill_id NUMBER(8) NOT NULL);
+
+-- sequences 
+CREATE SEQUENCE seq_employees
+INCREMENT BY 1
+START WITH 1;
+
+CREATE SEQUENCE seq_specialisms 
+INCREMENT BY 1
+START WITH 1;

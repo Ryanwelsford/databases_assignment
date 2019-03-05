@@ -1,0 +1,65 @@
+/*	
+	MODULE: CSY1026 
+	YEAR: 2018/2019
+	GROUP MEMBERS: Amaan Hassim (18413283), Carlos Vieira (18407794), Jack Wood-Stoddard (18412307), Ryan Andrew Welsford (18427982).
+	DATE CREATED: 00/MAR/2019
+	LAST CHANGED: 00/MAR/2019
+	FILE DESCRIPTION: Leave empty focus on bigger priorities in life for now. 
+	LOGIN COMMAND: CSY1026_174@student/18427982
+	RUN COMMAND: @D:\csy1026\scripts\alter_16.txt;
+*/
+-- SELECT constraint_name, table_name FROM user_constraints;
+-- primary keys
+ALTER TABLE employees
+ADD CONSTRAINT pk_employees
+PRIMARY KEY (employee_id);
+
+ALTER TABLE specialisms
+ADD CONSTRAINT pk_specialisms
+PRIMARY KEY (skill_id);
+
+ALTER TABLE employee_specialisms
+ADD CONSTRAINT pk_employee_specialisms
+PRIMARY KEY (employee_id, skill_id);
+
+-- foreign keys
+ALTER TABLE employee_specialisms
+ADD CONSTRAINT fk_es_employees
+FOREIGN KEY (employee_id)
+REFERENCES employees(employee_id);
+
+ALTER TABLE employee_specialisms
+ADD CONSTRAINT fk_es_specialisms
+FOREIGN KEY (skill_id)
+REFERENCES specialisms(skill_id);
+
+-- unique keys
+
+ALTER TABLE employees
+ADD CONSTRAINT u_employees
+UNIQUE (email);
+
+-- check constraints
+-- upper
+ALTER TABLE employees
+ADD CONSTRAINT ck_employees_first_name
+CHECK (first_name = UPPER(first_name));
+
+ALTER TABLE employees
+ADD CONSTRAINT ck_employees_last_name
+CHECK (last_name = UPPER(last_name));
+
+-- CHECK IN
+ALTER TABLE employees
+ADD CONSTRAINT ck_employees_title
+CHECK (title IN('MRS', 'MISS', 'MR', 'DR', 'LORD', 'SIR', 'LADY', 'DAME'));
+
+ALTER TABLE employees
+ADD CONSTRAINT ck_employees_gender
+CHECK (gender IN('M', 'F'));
+
+ALTER TABLE specialisms
+ADD CONSTRAINT ck_specialisms_skill
+CHECK (skill_department IN('COMPUTING', 'HUMANITIES', 'SCIENCE', 'ART', 'ENGLISH'));
+
+
